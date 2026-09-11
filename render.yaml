@@ -1,0 +1,40 @@
+# Render blueprint — client: Aelora Boutique (root repo)
+# STATIC SITE — no backend service block. This repo is a static frontend only.
+# Do NOT copy this file into another client's repo — each client repo has its
+# own Render service.
+
+services:
+  - type: static_site
+    name: aelora-boutique-shop
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    publishPath: .output/public
+    branch: client/aangan-boutique # Strictly keeps your active isolated tracking branch name
+    envVars:
+      # BUG 4.4: env var names are CASE-SENSITIVE on Render — keep these EXACTLY
+      # as written (same names in .env.example and the Render dashboard).
+      - key: VITE_SHOP_NAME
+        value: Aelora Boutique
+      - key: VITE_SHOP_TAGLINE
+        value: Wear Elegance, Wear Aelora — Bespoke Custom Stitching, Tailoring & Premium Ethnic Wear
+      - key: VITE_SHOP_FOUNDED_YEAR
+        value: "2024"
+      # Logo served from the repo public/ folder (absolute path — BUG 4.1)
+      - key: VITE_SHOP_LOGO_PATH
+        value: /favicon.ico
+      # BUG 4.2: digits only + country code — no "+", no spaces.
+      - key: VITE_WHATSAPP_NUMBER
+        value: "919654055631"
+      - key: VITE_INSTAGRAM_HANDLE
+        value: "aeloraboutique"
+      - key: VITE_CONTACT_EMAIL
+        value: "hello@aeloraboutique.in"
+      - key: VITE_WEBSITE_URL
+        value: https://aeloraboutique.in
+      # "Find us on Map" button target (BUG 4.7: empty => "Map coming soon")
+      - key: VITE_GOOGLE_MAPS_URL
+        value: https://google.com
+      # Google Maps embed (iframe) URL — optional
+      - key: VITE_GOOGLE_MAPS_EMBED_URL
+        value: ""
