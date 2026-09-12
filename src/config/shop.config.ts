@@ -14,19 +14,19 @@ const env = import.meta.env as Record<string, string | undefined>;
 
 export const shopConfig = {
   /** Display name — shown in nav logo, footer, page titles, JSON-LD. */
-  shopName: env["VITE_SHOP_NAME"] ?? "Aangan Boutique",
+  shopName: env["VITE_SHOP_NAME"] ?? "Shreya Creation",
 
   /** Short brand line — used in hero subtitle and footer blurb. */
   tagline:
     env["VITE_SHOP_TAGLINE"] ??
-    "Sophisticated ethnic & western wear for the modern wardrobe",
+    "Designer boutique, custom stitching & fashion designing institute in Patna",
 
   tagline_footer:
     env["VITE_SHOP_TAGLINE"] ??
-    "A designer boutique in Bodakdev, Ahmedabad, located on Sindhu Bhavan Marg opposite Bajrang Super Market. Specialising in ethnic, Indo-western, bridal and festive wear, with bespoke tailoring.",
+    "Shreya Creation is a designer boutique and fashion designing institute on East Boring Canal Road, Patna, specialising in bridal couture, designer blouses, lehengas, suits, gowns, custom stitching and practical fashion-designing courses.",
 
   /** Year the store was founded — used in the "House" story. */
-  foundedYear: env["VITE_SHOP_FOUNDED_YEAR"] ?? "2024",
+  foundedYear: env["VITE_SHOP_FOUNDED_YEAR"] ?? "2012",
 
   /** Brand accent — primary color from brand identity. */
   primaryColor: "#1A1A1A",
@@ -36,18 +36,20 @@ export const shopConfig = {
   /**
    * WhatsApp number — DIGITS ONLY + country code (91XXXXXXXXXX format).
    * No "+", no spaces, no dashes or the wa.me link breaks (BUG 4.2).
-   * From the client's official website.
    */
-  whatsappNumber: env["VITE_WHATSAPP_NUMBER"] ?? "+91 79489 23535",
+  whatsappNumber: env["VITE_WHATSAPP_NUMBER"] ?? "+91 90311 05666",
 
   /** Instagram handle (no "@" required in value, kept for display). */
-  instagramHandle: env["VITE_INSTAGRAM_HANDLE"] ?? "@aanganboutique",
+  instagramHandle:
+    env["VITE_INSTAGRAM_HANDLE"] ?? "shreya.creationss",
 
   /** Public contact email — footer, account profile, JSON-LD. */
-  contactEmail: env["VITE_CONTACT_EMAIL"] ?? "info@aanganboutique.in",
+  contactEmail:
+    env["VITE_CONTACT_EMAIL"] ?? "hello@shreyacreations.in",
 
   /** Deployed site URL — JSON-LD `sameAs` + OG URL. */
-  websiteUrl: env["VITE_WEBSITE_URL"] ?? "https://www.aanganboutique.in",
+  websiteUrl:
+    env["VITE_WEBSITE_URL"] ?? "https://shreyacreation.com",
 
   /**
    * Products: this template ships a STATIC catalog in `src/lib/products.ts`
@@ -59,41 +61,44 @@ export const shopConfig = {
 
   /** Store location — footer "Visit the store" + JSON-LD. */
   address: {
-    street: env["VITE_SHOP_STREET"] ?? "K-158",
-    locality: env["VITE_SHOP_LOCALITY"] ?? "Sindhu Bhawan Marg",
-    city: env["VITE_SHOP_CITY"] ?? "Ahmedabad",
-    region: env["VITE_SHOP_REGION"] ?? "Gujarat",
-    postalCode: env["VITE_SHOP_POSTAL"] ?? "380001",
+    street:
+      env["VITE_SHOP_STREET"] ??
+      "Sisodiya Place, East Boring Canal Road",
+    locality:
+      env["VITE_SHOP_LOCALITY"] ??
+      "Boring Road",
+    city: env["VITE_SHOP_CITY"] ?? "Patna",
+    region: env["VITE_SHOP_REGION"] ?? "Bihar",
+    postalCode: env["VITE_SHOP_POSTAL"] ?? "800001",
     country: "India",
   },
 
   /**
-   * Google Maps listing link — used by the "Find us on Map" button (BUG 4.7:
-   * if this is left "" the button renders as "Map coming soon" instead).
-   * User-provided: Aangan Boutique K-158 Sindhu Bhawan Marg Ahmedabad.
+   * Google Maps listing link — used by the "Find us on Map" button.
    */
   googleMapsUrl:
     env["VITE_GOOGLE_MAPS_URL"] ??
-    "https://www.google.com/maps/search/?api=1&query=Aangan+Boutique+K-158+Sindhu+Bhavan+Marg+Ahmedabad",
+    "https://www.google.com/maps/place/Shreya+creation+Boutique+Institute/@25.6103359,85.0998075,15z/data=!4m10!1m2!2m1!1sShreya+Creation!3m6!1s0x39ed583a14b55e6f:0x54c53b073707ea7e!8m2!3d25.6103359!4d85.1188619!15sCg9TaHJleWEgQ3JlYXRpb25aESIPc2hyZXlhIGNyZWF0aW9ukgEIYm91dGlxdWXgAQA!16s%2Fg%2F11st7djpls?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
 
   /** Google Maps embed (iframe) URL — leave "" until an embed link is provided. */
   googleMapsEmbedUrl: env["VITE_GOOGLE_MAPS_EMBED_URL"] ?? "",
 
   /** Display phone (spaces fine) + tel: href (digits only). */
-  phone: "+91 79489 23535",
-  phoneHref: "+9179489 23535",
+  phone: "+91 90311 05666",
+  phoneHref: "+919031105666",
 
   /** Opening hours line — footer + boutiques. */
-  hours: "Open Daily · 10 AM - 9 PM",
+  hours:
+    env["VITE_SHOP_HOURS"] ?? "Mon–Sat · 10 AM - 8 PM · Closed Sunday",
 
-  /** Geo coordinates for JSON-LD — approximate for Ahmedabad. */
-  lat: 23.0225,
-  lng: 72.5714,
+  /** Geo coordinates for JSON-LD — from the provided Google Maps listing. */
+  lat: 25.6103359,
+  lng: 85.1188619,
 
   /** Hero headline — first line white, second line gold italic. */
   hero: {
-    part1: "Aangan Boutique",
-    part2: "Besoke Culture",
+    part1: "Shreya Creation",
+    part2: "Boutique, Patna",
   },
 
   /**
@@ -105,41 +110,74 @@ export const shopConfig = {
     /** Enable Today's Fashion brand mode. */
     enabled:
       env["VITE_TODAY_FASHION_ENABLED"] !== "false",
+
     /** Display name — shown in nav logo, footer, page titles, JSON-LD. */
     shopName:
-      env["VITE_TODAY_FASHION_SHOP_NAME"] ?? "Today's Fashion",
+      env["VITE_TODAY_FASHION_SHOP_NAME"] ??
+      "Shreya Creation Boutique & Institute",
+
     /** City — used in page titles and descriptions. */
-    city: env["VITE_TODAY_FASHION_CITY"] ?? "Patna",
+    city:
+      env["VITE_TODAY_FASHION_CITY"] ??
+      "Patna",
+
     /** Street address — footer "Visit the store". */
-    street: env["VITE_TODAY_FASHION_STREET"] ?? "Prakash Paradise Building",
+    street:
+      env["VITE_TODAY_FASHION_STREET"] ??
+      "Sisodiya Place, East Boring Canal Road",
+
     /** Locality — used in full address. */
-    locality: env["VITE_TODAY_FASHION_LOCALITY"] ?? "Lalbagh",
+    locality:
+      env["VITE_TODAY_FASHION_LOCALITY"] ??
+      "Boring Road",
+
     /** Region — used in full address. */
-    region: env["VITE_TODAY_FASHION_REGION"] ?? "Bihar",
+    region:
+      env["VITE_TODAY_FASHION_REGION"] ??
+      "Bihar",
+
     /** Postal code. */
-    postalCode: env["VITE_TODAY_FASHION_POSTAL"] ?? "800004",
+    postalCode:
+      env["VITE_TODAY_FASHION_POSTAL"] ??
+      "800001",
+
     /** Country. */
     country: "India",
+
     /** Google Maps URL. */
     googleMapsUrl:
       env["VITE_TODAY_FASHION_GOOGLE_MAPS_URL"] ??
-      "https://www.google.com/maps/place/Today's+Fashion/@25.6190378,84.5521472,10z/data=!4m10!1m2!2m1!1sDelhi+fashion+clothes+shop!3m6!1s0x39ed58e58c02b0e7:0xa97ec9d9d12f23af!8m2!3d25.6190378!4d85.1618884!15sChpEZWxoaSBmYXNoaW9uIGNsb3RoZXMgc2hvcFocIhpkZWxoaSBmYXNoaW9uIGNsb3RoZXMgc2hvcJIBDmNsb3RoaW5nX3N0b3Jl4AEA!16s%2Fg%2F11b7w6gpc_?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D",
+      "https://www.google.com/maps/place/Shreya+creation+Boutique+Institute/@25.6103359,85.0998075,15z/data=!4m10!1m2!2m1!1sShreya+Creation!3m6!1s0x39ed583a14b55e6f:0x54c53b073707ea7e!8m2!3d25.6103359!4d85.1188619!15sCg9TaHJleWEgQ3JlYXRpb25aESIPc2hyZXlhIGNyZWF0aW9ukgEIYm91dGlxdWXgAQA!16s%2Fg%2F11st7djpls?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
+
     /** Contact email. */
-    contactEmail: env["VITE_TODAY_FASHION_CONTACT_EMAIL"] ?? "info@todayfashion.co.in",
+    contactEmail:
+      env["VITE_TODAY_FASHION_CONTACT_EMAIL"] ??
+      "hello@shreyacreations.in",
+
     /** Instagram handle. */
-    instagramHandle: env["VITE_TODAY_FASHION_INSTAGRAM_HANDLE"] ?? "@todaysfashion",
+    instagramHandle:
+      env["VITE_TODAY_FASHION_INSTAGRAM_HANDLE"] ??
+      "@shreya.creationss",
+
     /** WhatsApp number. */
-    whatsappNumber: env["VITE_TODAY_FASHION_WHATSAPP_NUMBER"] ?? "919334110962",
+    whatsappNumber:
+      env["VITE_TODAY_FASHION_WHATSAPP_NUMBER"] ??
+      "919031105666",
+
     /** Opening hours. */
-    hours: env["VITE_TODAY_FASHION_HOURS"] ?? "Open daily · 10:00 – 21:00",
+    hours:
+      env["VITE_TODAY_FASHION_HOURS"] ??
+      "Mon–Sat · 10:00 – 20:00 · Closed Sunday",
+
     /** Latitude for JSON-LD. */
     lat: env["VITE_TODAY_FASHION_LAT"]
       ? parseFloat(env["VITE_TODAY_FASHION_LAT"])
-      : 25.6190378,
+      : 25.6103359,
+
     /** Longitude for JSON-LD. */
     lng: env["VITE_TODAY_FASHION_LNG"]
       ? parseFloat(env["VITE_TODAY_FASHION_LNG"])
-      : 85.1618884,
+      : 85.1188619,
   } as const,
 } as const;
 
@@ -149,14 +187,17 @@ export const shop = {
     shopConfig.todayFashion.enabled && shopConfig.todayFashion.shopName
       ? shopConfig.todayFashion.shopName
       : shopConfig.shopName,
+
   city:
     shopConfig.todayFashion.enabled && shopConfig.todayFashion.city
       ? shopConfig.todayFashion.city
       : shopConfig.address.city,
+
   tagline:
     shopConfig.todayFashion.enabled && shopConfig.todayFashion.shopName
       ? `${shopConfig.todayFashion.shopName} — Fashion Store in ${shopConfig.todayFashion.city}`
       : shopConfig.tagline,
+
   fullAddress:
     shopConfig.todayFashion.enabled && shopConfig.todayFashion.shopName
       ? `${shopConfig.todayFashion.street}, ${shopConfig.todayFashion.locality}, ${shopConfig.todayFashion.city}, ${shopConfig.todayFashion.region} ${shopConfig.todayFashion.postalCode}, ${shopConfig.todayFashion.country}`
