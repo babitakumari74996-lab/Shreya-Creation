@@ -8,8 +8,8 @@ services:
     name: shreya-creation-boutique-institute
     runtime: node
     plan: free
-    buildCommand: npm run build
-    publishPath: .output/public
+    buildCommand: npm install && npm run build
+    publishPath: dist
     branch: client/shreya-creation-boutique
     envVars:
       # BUG 4.4: env var names are CASE-SENSITIVE on Render — keep these EXACTLY
