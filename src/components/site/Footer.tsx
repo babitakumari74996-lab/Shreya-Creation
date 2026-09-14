@@ -87,7 +87,6 @@ export function Footer() {
                 </a>
               </li>
             ) : null}
-              </li>
               <li className="flex gap-2">
                 <Clock className="mt-0.5 size-3.5 shrink-0 text-gold" />
                 <span>{shopConfig.todayFashion.enabled ? shopConfig.todayFashion.hours : shopConfig.hours}</span>
