@@ -14,15 +14,15 @@ const env = import.meta.env as Record<string, string | undefined>;
 
 export const shopConfig = {
   /** Display name — shown in nav logo, footer, page titles, JSON-LD. */
-  shopName: env["VITE_SHOP_NAME"] ?? "Shreya Creation",
+  shopName: env["VITE_SHOP_NAME"]?.trim() || "Shreya Creation",
 
   /** Short brand line — used in hero subtitle and footer blurb. */
   tagline:
-    env["VITE_SHOP_TAGLINE"] ??
+    env["VITE_SHOP_TAGLINE"]?.trim() ||
     "Designer boutique, custom stitching & fashion designing institute in Patna",
 
   tagline_footer:
-    env["VITE_SHOP_TAGLINE"] ??
+    env["VITE_SHOP_TAGLINE"]?.trim() ||
     "Shreya Creation is a designer boutique and fashion designing institute on East Boring Canal Road, Patna, specialising in bridal couture, designer blouses, lehengas, suits, gowns, custom stitching and practical fashion-designing courses.",
 
   /** Year the store was founded — used in the "House" story. */
