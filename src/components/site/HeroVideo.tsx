@@ -1,8 +1,4 @@
-import { useEffect, useRef } from "react";
-
-let heroPlayed = false;
-let heroEnded = false;
-let heroTime = 0;
+import { useState, useEffect, useRef } from "react";
 
 /** Background video for the home hero — always silent, plays back once.
  *
@@ -16,7 +12,11 @@ let heroTime = 0;
  *  frame pinned to the top-right corner of the hero — the height fills the
  *  viewport while the width stays at the video's 16:9 size, so the model
  *  stays fully visible on the right side of the screen. */
+
 export function HeroVideo() {
+  const [hasPlayed, setHasPlayed] = useState(false);
+  const [hasEnded, setHasEnded] = useState(false);
+  const [heroTime, setHeroTime] = useState(0);
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -25,13 +25,13 @@ export function HeroVideo() {
     video.muted = true;
     video.volume = 1.0;
 
-    if (heroPlayed) {
+    if (hasPlayed) {
       // Don't replay — show the frame where it was left off. Seeking to the
       // exact end makes Chrome show a blank/zero frame, so land just before
       // the end when the video had finished.
       const show = () => {
         if (!video || video.readyState < 1) return;
-        const target = heroEnded
+        const target = hasEnded
           ? Math.max(video.duration - 0.05, 0)
           : Math.min(heroTime, Math.max(video.duration - 0.05, 0));
         if (!Number.isNaN(target)) {
@@ -43,7 +43,7 @@ export function HeroVideo() {
       else video.addEventListener("loadedmetadata", show, { once: true });
       return;
     }
-    heroPlayed = true;
+    setHasPlayed(true);
 
     const play = async () => {
       if (!video || video.ended) return false;
@@ -81,15 +81,15 @@ export function HeroVideo() {
     const video = ref.current;
     return () => {
       if (!video) return;
-      if (!video.paused && !video.ended) heroTime = video.currentTime;
+      if (!video.paused && !video.ended) setHeroTime(video.currentTime);
     };
   }, []);
 
   const handleEnded = () => {
     const video = ref.current;
     if (!video) return;
-    heroEnded = true;
-    heroTime = video.currentTime;
+    setHasEnded(true);
+    setHeroTime(video.currentTime);
     video.pause();
   };
 
