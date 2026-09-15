@@ -1,22 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
 export default defineConfig({
   plugins: [
-    tanstackStart({
-      server: { entry: "server" },
-      router: {
-        routesDirectory: path.resolve(__dirname, "src/routes"),
-        generatedRouteTree: path.resolve(__dirname, "src/routeTree.gen.ts"),
-        autoCodeSplitting: false,
-        codeSplittingOptions: {
-          addHmr: false,
-        },
-        tmpDir: path.resolve(__dirname, ".tanstack-tmp"),
-      },
+    tanstackRouter({
+      routesDirectory: path.resolve(__dirname, "src/routes"),
+      generatedRouteTree: path.resolve(__dirname, "src/routeTree.gen.ts"),
+      autoCodeSplitting: false,
     }),
     tailwindcss(),
     react(),

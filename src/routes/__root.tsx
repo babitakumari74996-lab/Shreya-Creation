@@ -117,7 +117,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressCountry: shopConfig.address.country,
           },
           geo: { "@type": "GeoCoordinates", latitude: shopConfig.lat, longitude: shopConfig.lng },
-          telephone: shopConfig.phoneHref,
+                    telephone: shopConfig.phone,
           openingHours: shopConfig.hours,
           hasMap: shopConfig.googleMapsUrl,
           sameAs: [shopConfig.websiteUrl],

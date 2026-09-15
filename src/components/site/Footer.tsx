@@ -78,7 +78,7 @@ export function Footer() {
 
           <div>
             <p className="eyebrow">Visit the store</p>
-            <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
+                        <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
               <li className="flex gap-2">
                 <MapPin className="mt-0.5 size-3.5 shrink-0 text-gold" />
                 <a
@@ -92,15 +92,14 @@ export function Footer() {
                   Find us on Map
                 </a>
               </li>
-              </li>
               <li className="flex gap-2">
                 <Clock className="mt-0.5 size-3.5 shrink-0 text-gold" />
                 <span>{shopConfig.todayFashion.enabled ? shopConfig.todayFashion.hours : shopConfig.hours}</span>
               </li>
               <li className="flex gap-2">
                 <Phone className="mt-0.5 size-3.5 shrink-0 text-gold" />
-                <a href={`tel:${shopConfig.whatsappNumber}`} className="lux-underline hover:text-foreground">
-                  {shopConfig.whatsappNumber}
+                <a href={`tel:${shopConfig.phone.replace(/\s/g, '')}`} className="lux-underline hover:text-foreground">
+                  {shopConfig.phone}
                 </a>
               </li>
             </ul>
@@ -130,7 +129,7 @@ export function Footer() {
           <MessageCircle className="size-[18px]" />
         </a>
         <a
-          href={`tel:${shopConfig.phoneHref}`}
+          href={`tel:${shopConfig.phone.replace(/s/g, '')}`}
           aria-label="Call the store"
           className="glass grid size-11 place-items-center rounded-full text-gold transition-transform hover:scale-110 md:hidden"
         >
