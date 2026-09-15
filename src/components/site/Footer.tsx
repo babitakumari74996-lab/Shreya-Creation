@@ -81,14 +81,17 @@ export function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
               <li className="flex gap-2">
                 <MapPin className="mt-0.5 size-3.5 shrink-0 text-gold" />
-                {shopConfig.googleMapsUrl ? (
-                  <a href={shopConfig.googleMapsUrl} target="_blank" rel="noreferrer noopener" className="lux-underline hover:text-foreground">
-                    Find us on Map
-                  </a>
-                ) : (
-                  <span className="text-muted-foreground">Map coming soon</span>
-                )
-                }
+                <a
+                  href={shopConfig.googleMapsUrl && shopConfig.googleMapsUrl !== "" && shopConfig.googleMapsUrl !== "https://google.com"
+                    ? shopConfig.googleMapsUrl
+                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shopConfig.shopName)}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="lux-underline hover:text-foreground"
+                >
+                  Find us on Map
+                </a>
+              </li>
               </li>
               <li className="flex gap-2">
                 <Clock className="mt-0.5 size-3.5 shrink-0 text-gold" />
